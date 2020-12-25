@@ -9,7 +9,7 @@ public class TouchInputView extends View {
     public boolean isFingerDown;
     public boolean isStreamingTouchEvents;
 
-    public TouchInputView(Context context, AttributeSet attrs){
+    public TouchInputView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         this.isFingerDown = false;
@@ -17,31 +17,33 @@ public class TouchInputView extends View {
     }
 
     /**
-     * TODO This is a naive implementation for simplicity. It only supports a single finger and there will be some unexpected behaviors when you try to stress it with multiple fingers.
+     * TODO This is a naive implementation for simplicity. It only supports a single finger and
+     * there will be some unexpected behaviors when you try to stress it with multiple fingers.
+     *
      * @param event
      * @return
      */
     @Override
-    public boolean onTouchEvent(MotionEvent event){
+    public boolean onTouchEvent(MotionEvent event) {
         int action = event.getAction();
 
-        if(action == MotionEvent.ACTION_DOWN){
-            if(!this.isFingerDown){
+        if (action == MotionEvent.ACTION_DOWN) {
+            if (!this.isFingerDown) {
                 this.isFingerDown = true;
-                if(this.isStreamingTouchEvents){
+                if (this.isStreamingTouchEvents) {
                     // TODO
                 }
             }
-        }else if(action == MotionEvent.ACTION_UP){
-            if(this.isFingerDown){
+        } else if (action == MotionEvent.ACTION_UP) {
+            if (this.isFingerDown) {
                 this.isFingerDown = false;
-                if(this.isStreamingTouchEvents){
+                if (this.isStreamingTouchEvents) {
                     // TODO
                 }
             }
-        }else if(action == MotionEvent.ACTION_MOVE){
-            if(this.isFingerDown){
-                if(this.isStreamingTouchEvents){
+        } else if (action == MotionEvent.ACTION_MOVE) {
+            if (this.isFingerDown) {
+                if (this.isStreamingTouchEvents) {
                     // TODO
                 }
             }
