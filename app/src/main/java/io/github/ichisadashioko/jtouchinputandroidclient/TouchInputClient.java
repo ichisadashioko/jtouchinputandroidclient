@@ -51,6 +51,8 @@ public class TouchInputClient extends Thread {
                 System.err.println("Failed to close inputStream!");
                 ex.printStackTrace(System.err);
             }
+
+            this.inputStream = null;
         }
 
         if (this.outputStream != null) {
@@ -60,6 +62,8 @@ public class TouchInputClient extends Thread {
                 System.err.println("Failed to close outputStream!");
                 ex.printStackTrace(System.err);
             }
+
+            this.outputStream = null;
         }
 
         if (this.socket != null) {
@@ -68,7 +72,7 @@ public class TouchInputClient extends Thread {
                     this.socket.close();
                 } catch (IOException ex) {
                     System.err.println("Failed to close the socket!");
-                    ex.printStackTrace();
+                    ex.printStackTrace(System.err);
                 }
             }
         }
